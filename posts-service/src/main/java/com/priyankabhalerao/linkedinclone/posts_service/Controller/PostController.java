@@ -30,10 +30,11 @@ public class PostController {
         return new ResponseEntity<>(createPost, HttpStatus.CREATED);
     }
 
-    @GetMapping("/postId")
+    @GetMapping("/{postId}")
     public ResponseEntity<PostDto> getPostById(@PathVariable Long postId)
     {
-        return new ResponseEntity<>(postsService.getPost(postId),HttpStatus.OK);
+        PostDto postDto = postsService.getPost(postId);
+        return ResponseEntity.ok(postDto);
     }
 
 //    @GetMapping("/fetch")
