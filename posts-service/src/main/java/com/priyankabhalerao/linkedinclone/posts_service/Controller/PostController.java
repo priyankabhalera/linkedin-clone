@@ -37,10 +37,9 @@ public class PostController {
         return ResponseEntity.ok(postDto);
     }
 
-//    @GetMapping("/fetch")
-//    public ResponseEntity<List<PostDto>> getPosts()
-//    {
-//        List<PostDto> allPosts = postsService.getAllPosts();
-//        return  new ResponseEntity<>(allPosts,HttpStatus.OK);
-//    }
+    @GetMapping("/users/{userId}/allPosts")
+    public ResponseEntity<List<PostDto>> getPosts(@PathVariable Long userId) {
+        List<PostDto> posts = postsService.getAllPostsOfUser(userId);
+        return ResponseEntity.ok(posts);
+    }
 }
