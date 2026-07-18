@@ -3,6 +3,7 @@ package com.priyankabhalerao.linkedinclone.posts_service.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -15,9 +16,12 @@ public class PostLike {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private Long userId;
 
+    @Column(nullable = false)
     private Long postId;
 
+    @CreationTimestamp
     private LocalDateTime createdAt;
 }
